@@ -528,7 +528,7 @@
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
-        Dim file As System.IO.StreamWriter
+        'Dim file As System.IO.StreamWriter
         Dim Name As String
         Dim MyArray(Me.lstJailTimes.Items.Count) As String
         Me.lstJailTimes.Items.CopyTo(MyArray, 0)
@@ -539,25 +539,25 @@
             Total = 60
             lblJailTotal.Text = Total & " Minutes"
             lblTotalFines.Text = "$" & TotalFines
-            file = My.Computer.FileSystem.OpenTextFileWriter("JailTimes.txt", True)
+            'file = My.Computer.FileSystem.OpenTextFileWriter("JailTimes.txt", True)
             If rtxtSitReport.Text <> "" Then
-                file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value & " Situation Report : [ " & rtxtSitReport.Text & " ] |")
+                'file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value & " Situation Report : [ " & rtxtSitReport.Text & " ] |")
             Else
-                file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value)
+                'file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value)
             End If
-            file.Close()
+            'file.Close()
             Total = SavedTotal
             MsgBox("Added to database")
             ElseIf Name.Length > 0 And (Total + Highest > 0) Then
                 Total = Total + Highest
-                file = My.Computer.FileSystem.OpenTextFileWriter("JailTimes.txt", True)
+            'file = My.Computer.FileSystem.OpenTextFileWriter("JailTimes.txt", True)
             If rtxtSitReport.Text <> "" Then
-                file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value & " Situation Report : [ " & rtxtSitReport.Text & " ] |")
+                'file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value & " Situation Report : [ " & rtxtSitReport.Text & " ] |")
             Else
-                file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value)
+                'file.WriteLine(Name & " | " & Total & " Minutes | $" & TotalFines & " | " & value)
             End If
-            file.Close()
-                lblJailTotal.Text = Total & " Minutes"
+            'file.Close()
+            lblJailTotal.Text = Total & " Minutes"
                 lblTotalFines.Text = "$" & TotalFines
                 Total = Total - Highest
                 MsgBox("Added to database")
